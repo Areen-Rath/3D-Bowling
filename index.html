@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js" target="_blank"></script>
+        <script src="./js/Ball.js"></script>
+    </head>
+    <body>
+        <a-scene id="scene">
+            <a-assets>
+                <a-asset-item id="bowling-pin" src="./models/bowling-pin/scene.gltf"></a-asset-item>
+            </a-assets>
+            <a-entity light="type: ambient; color: yellow; intensity: 0.5;"></a-entity>
+            <a-entity
+                id="camera"
+                camera
+                position="0 1.6 0"
+                wasd-controls
+                look-controls="pointerLockEnabled: false;"
+            >
+                <a-cursor></a-cursor>
+            </a-entity>
+            <a-entity ball></a-entity>
+            <a-plane
+                id="ground"
+                repeat="5 5"
+                position="0 1 0"
+                rotation="-90 0 0"
+                height="200"
+                width="200"
+                color="#FFDAE7"
+                static-body
+                visible="true"
+            ></a-plane>
+            <a-entity
+                id="pin1"
+                position="-2 1.5 -10"
+                gltf-model="#bowling-pin"
+                depth="1"
+                scale="0.1 0.1 0.1"
+                static-body
+            ></a-entity>
+            <a-entity
+                id="pin2"
+                position="-3 1.5 -9"
+                gltf-model="#bowling-pin"
+                depth="1"
+                scale="0.1 0.1 0.1"
+                static-body
+            ></a-entity>
+            <a-entity
+                id="pin3"
+                position="-1 1.5 -9"
+                gltf-model="#bowling-pin"
+                depth="1"
+                scale="0.1 0.1 0.1"
+                static-body
+            ></a-entity>
+            <a-entity
+                id="pin4"
+                position="-4 1.5 -8"
+                gltf-model="#bowling-pin"
+                depth="1"
+                scale="0.1 0.1 0.1"
+                static-body
+            ></a-entity>
+            <a-entity
+                id="pin5"
+                position="-2 1.5 -8"
+                gltf-model="#bowling-pin"
+                depth="1"
+                scale="0.1 0.1 0.1"
+                static-body
+            ></a-entity>
+            <a-entity
+                id="pin6"
+                position="0 1.5 -8"
+                gltf-model="#bowling-pin"
+                depth="1"
+                scale="0.1 0.1 0.1"
+                static-body
+            ></a-entity>
+        </a-scene>
+    </body>
+</html>
