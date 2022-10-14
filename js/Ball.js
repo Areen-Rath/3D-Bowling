@@ -26,8 +26,27 @@ AFRAME.registerComponent("ball", {
                     mass: 0
                 });
                 var scene = document.querySelector("#scene");
+                ball.addEventListener("collide", this.removeBall);
                 scene.appendChild(ball);
             }
         });
+    },
+    removeBall: function(e) {
+        var target = e.detail.target.el;
+        var body = e.detail.body.el;
+        if (body.id.includes("pin")) {
+            body.setAttribute("material", {
+                opacity: 0.6,
+                transparent: true
+            });
+            var impulse = new CANNON.Vec3(-2, 2, 1);
+            var worldPoint = new CANNON.Vec3().copy(body.getAttribute("position"));
+            body.removeAttribute("static-body");
+            body.setAttribute("dynamic-body", {});
+            body.body.applyImpulse(impulse, worldPoint);
+            target.removeEventListener("collide", this.release);
+            var scene = document.querySelector("#scene");
+            scene.removeChild(target);
+        }
     }
 });
